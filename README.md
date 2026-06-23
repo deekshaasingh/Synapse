@@ -30,7 +30,7 @@ Synapse is an event-driven infrastructure simulation engine. Drag nodes onto a c
 
 Overloaded nodes pulse red. Warning nodes glow amber. Healthy nodes stay green. The bottleneck is always obvious.
 
-![Synapse Demo](./demo.png)
+![Synapse Demo](./synapse-backend/demo.png)
 
 > 6 clients connected to a single API Server — server hits 120% capacity and triggers the overload alert. Adding a Load Balancer in front of multiple servers would distribute this traffic and bring utilization down.
 
