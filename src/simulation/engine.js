@@ -53,10 +53,11 @@ export function runSimulationTick(graph) {
   const alerts = [];
 
   for (const node of nodes) {
-    const capacity =
-      node.capacity ??
-      DEFAULT_CAPACITY[node.type] ??
-      DEFAULT_CAPACITY.default;
+    const nodeType = node.data?.nodeType ?? node.type ?? 'default';
+const capacity =
+  node.capacity ??
+  DEFAULT_CAPACITY[nodeType] ??
+  DEFAULT_CAPACITY.default;
 
     const load = incomingLoad.get(node.id) ?? 0;
     const utilization = capacity > 0 ? load / capacity : 0;
@@ -67,8 +68,8 @@ export function runSimulationTick(graph) {
     else if (utilization >= WARN_THRESHOLD) status = "warning";
 
     nodeStats[node.id] = {
-      nodeId:      node.id,
-      type:        node.type ?? "default",
+  nodeId:      node.id,
+  type:        node.data?.nodeType ?? node.type ?? "default",
       load,
       capacity,
       utilization: parseFloat(utilization.toFixed(3)),
