@@ -24,6 +24,8 @@ Overloaded nodes pulse red. Warning nodes glow amber. Healthy nodes stay green. 
 
 ![Synapse Demo](./demo.png)
 
+> 6 clients connected to a single API Server — server hits 120% capacity and triggers the overload alert. Adding a Load Balancer in front of multiple servers would distribute this traffic and bring utilization down.
+
 ---
 
 ## Architecture
