@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import canvasRoutes from "./routes/canvas.js";
 
 const app = express();
 
@@ -8,7 +9,7 @@ const app = express();
 app.use(
   cors({
     origin: process.env.CLIENT_ORIGIN,
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "DELETE"],
     credentials: true,
   })
 );
@@ -16,6 +17,9 @@ app.use(
 // --- Body Parsing ---
 // Parses incoming JSON payloads — required for any POST request with a body
 app.use(express.json());
+
+// --- API Routes ---
+app.use("/api/canvas", canvasRoutes);
 
 // --- Health Check Route ---
 // Load balancers and uptime monitors ping this to verify the server is alive
