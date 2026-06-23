@@ -22,6 +22,8 @@ Synapse is an event-driven infrastructure simulation engine. Drag nodes onto a c
 
 Overloaded nodes pulse red. Warning nodes glow amber. Healthy nodes stay green. The bottleneck is always obvious.
 
+![Synapse Demo](./demo.png)
+
 ---
 
 ## Architecture
