@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --bg-base:       #0a0a0f;
+  --bg-surface:    #111118;
+  --bg-elevated:   #1a1a24;
+  --border:        #2a2a3a;
+  --border-bright: #3a3a50;
+
+  --neon-cyan:     #00f5ff;
+  --neon-green:    #00ff88;
+  --neon-red:      #ff3366;
+  --neon-amber:    #ffaa00;
+
+  --text-primary:  #e8e8f0;
+  --text-secondary:#8888aa;
+  --text-muted:    #4a4a66;
+
+  --node-server:   #1a2a3a;
+  --node-db:       #1a2a1a;
+  --node-cache:    #2a1a2a;
+  --node-lb:       #2a2a1a;
+  --node-client:   #1a1a2a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { 
+  background: var(--bg-base); 
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* React Flow overrides */
+.react-flow__background { background: var(--bg-base) !important; }
+.react-flow__edge-path { stroke: var(--border-bright) !important; stroke-width: 2px; }
+.react-flow__edge.selected .react-flow__edge-path { stroke: var(--neon-cyan) !important; }
+.react-flow__handle {
+  background: var(--border-bright) !important;
+  border: 2px solid var(--bg-surface) !important;
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.react-flow__node {
+  overflow: visible !important;
+}
+
+.react-flow__handle:hover {
+  background: var(--neon-cyan) !important;
+  transform: scale(1.4);
+}
+.react-flow__controls {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+.react-flow__controls-button {
+  background: var(--bg-surface) !important;
+  border-bottom: 1px solid var(--border) !important;
+  fill: var(--text-secondary) !important;
+}
+.react-flow__controls-button:hover { background: var(--bg-elevated) !important; }
+.react-flow__minimap {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 2px; }
+
+/* Neon glow animation for overloaded nodes */
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 8px var(--neon-red), 0 0 20px var(--neon-red), inset 0 0 8px rgba(255,51,102,0.1); }
+  50%       { box-shadow: 0 0 16px var(--neon-red), 0 0 40px var(--neon-red), inset 0 0 16px rgba(255,51,102,0.2); }
+}
+.node-overloaded { animation: neon-pulse 1s ease-in-out infinite; }
+
+@keyframes neon-warn {
+  0%, 100% { box-shadow: 0 0 6px var(--neon-amber), 0 0 14px var(--neon-amber); }
+  50%       { box-shadow: 0 0 12px var(--neon-amber), 0 0 28px var(--neon-amber); }
+}
+.node-warning { animation: neon-warn 1.5s ease-in-out infinite; }
+
+@keyframes flow-dash {
+  to { stroke-dashoffset: -20; }
+}
+.edge-active {
+  stroke-dasharray: 6 4;
+  animation: flow-dash 0.6s linear infinite;
+}
+
+/* Tooltip */
+.synapse-tooltip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-bright);
+  border-radius: 6px;
+  padding: 8px 10px;
+  color: var(--text-primary);
+  pointer-events: none;
+}
