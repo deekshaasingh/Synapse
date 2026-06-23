@@ -13,9 +13,7 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://mongodb.com)
 
 
-# ⬡ Synapse
-
-Real-time infrastructure simulation engine. Design a system topology, run the simulation, watch your bottlenecks glow red.
+</div>
 
 ## Structure
 
@@ -23,9 +21,6 @@ Real-time infrastructure simulation engine. Design a system topology, run the si
 - `synapse-frontend/` — Next.js + React Flow + Tailwind CSS
 
 See `synapse-backend/README.md` for full documentation and setup instructions.
-
-
-</div>
 
 ---
 
