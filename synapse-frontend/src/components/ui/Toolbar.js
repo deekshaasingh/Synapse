@@ -7,7 +7,7 @@ const NODE_TYPES = [
   { type: 'server',       label: 'Server',    icon: '⬡', color: '#00f5ff' },
   { type: 'database',     label: 'Database',  icon: '◉', color: '#00ff88' },
   { type: 'cache',        label: 'Cache',     icon: '◈', color: '#cc88ff' },
-  { type: 'loadbalancer', label: 'LB',        icon: '⬡', color: '#ffaa00' },
+  { type: 'loadbalancer', label: 'Load Balancer',        icon: '⬡', color: '#ffaa00' },
   { type: 'client',       label: 'Client',    icon: '◎', color: '#4488ff' },
 ];
 
